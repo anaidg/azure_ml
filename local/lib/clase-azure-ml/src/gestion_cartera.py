@@ -47,6 +47,6 @@ if __name__ == "__main__":
     y_pred = model_tunning.predict(Xtest)
 
     #mejor score
-    print('Mejor score: '+ model_tunning.best_score_)
+    print('Mejor score: '+ str(model_tunning.best_score_))
 
-    pickle.dump(model_tunning, open('../outputs/gestion_cartera.pkl', 'wb'))
+    #pickle.dump(model_tunning, open('../outputs/gestion_cartera.pkl', 'wb'))
