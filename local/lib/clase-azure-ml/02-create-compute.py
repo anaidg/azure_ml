@@ -4,10 +4,10 @@ from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 from azureml.core.authentication import InteractiveLoginAuthentication
 
-#interactive_auth = InteractiveLoginAuthentication(tenant_id="")
+#interactive_auth = InteractiveLoginAuthentication(tenant_id="99e1e721-7184-498e-8aff-b2ad4e53c1c2")
 
 #ws = Workspace.get(name='azure-ml',
- #                    subscription_id='',
+ #                    subscription_id='cb1eac41-cfa3-4fb0-b998-d0860b693244',
   #                   resource_group='rg_machine_learning',auth=interactive_auth)
 
 ws = Workspace.from_config() # This automatically looks for a directory .azureml

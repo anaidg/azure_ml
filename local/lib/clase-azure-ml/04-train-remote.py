@@ -9,15 +9,15 @@ if __name__ == "__main__":
     ws = Workspace.from_config(path='./.azureml',_file_name='config.json')
 
     #Experiment
-    experiment = Experiment(workspace=ws, name='day1-experiment-train-pytorch')
+    experiment = Experiment(workspace=ws, name='day1-experiment-train-project')
     config = ScriptRunConfig(source_directory='./src',
-                             script='train-remote.py',
+                             script='gestion_cartera.py',
                              compute_target='cpu-cluster')
 
     # set up pytorch environment
     env = Environment.from_conda_specification(
-        name='pytorch-env',
-        file_path='./.azureml/pytorch-remote-env.yml'
+        name='project-env',
+        file_path='./.azureml/sklearn-env-amlproject.yml'
     )
 
     config.run_config.environment = env

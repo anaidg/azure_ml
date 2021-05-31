@@ -6,12 +6,12 @@ from azureml.core.model import Model
 from azureml.core.webservice import LocalWebservice
 
 ws = Workspace.from_config(path='./.azureml',_file_name='config.json')
-model = Model(ws,name='iris_model',version=1)
+model = Model(ws,name='gestion_cartera_model',version=1)
 
 
 env = Environment.from_conda_specification(
-        name='sklearn-aml-env',
-        file_path='./.azureml/sklearn-env-aml.yml'
+        name='sklearn-aml-env-project',
+        file_path='./.azureml/sklearn-env-amlproject.yml'
     )
 
 inference_config = InferenceConfig(entry_script="./src/score.py", environment=env)
@@ -19,7 +19,7 @@ inference_config = InferenceConfig(entry_script="./src/score.py", environment=en
 deployment_config = LocalWebservice.deploy_configuration(port=6789)
 
 local_service = Model.deploy(workspace=ws, 
-                       name='iris-model-local', 
+                       name='gestion-cartera-local', 
                        models=[model], 
                        inference_config=inference_config, 
                        deployment_config = deployment_config)
